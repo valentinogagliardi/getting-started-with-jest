@@ -33,9 +33,17 @@ describe("Filter function", () => {
 
   test("it should throw when searchTerm is empty string", () => {
     // solution ex 2
-    const input = [];
+    const input = [{ id: 1, url: "https://www.url1.dev" },];
     expect(() => {
       filterByTerm(input, "");
     }).toThrowError(Error("searchTerm cannot be empty"));
+  });
+
+  test("it should throw when searchTerm is empty input array", () => {
+    // solution ex 3
+    const input = [];
+    expect(() => {
+      filterByTerm(input, "link");
+    }).toThrowError(Error("inputArr cannot be empty"));
   });
 });
